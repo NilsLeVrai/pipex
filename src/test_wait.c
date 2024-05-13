@@ -12,7 +12,7 @@ int main(void)
     if (pid == 0)
     {
         printf("Fils : Je suis le fils, mon pid interne est %d.\n", pid);
-        sleep(0.9);
+        sleep(3);
         printf("Fils : Termine !\n");
     }
     else if (pid > 0)

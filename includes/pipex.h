@@ -6,7 +6,7 @@
 /*   By: niabraha <niabraha@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 15:55:50 by niabraha          #+#    #+#             */
-/*   Updated: 2024/05/13 17:05:33 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/05/18 15:19:52 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@
 ////   \___|_|  |_|  \___/|_|  |___/  ////
 //////////////////////////////////////////
 
-void error_args(int argc, char **argv);
+void error_args();
 void error_pipe(void);
 void error_fork(void);
+void error_open(void);
 
 //////////////////////////////
 //       _                  //

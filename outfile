@@ -1,1 +1,10 @@
-4
+total 88
+-rw-r--r--   1 nils  staff   1140 May 18 01:02 Makefile
+drwxr-xr-x   4 nils  staff    128 May 18 15:19 errors
+drwxr-xr-x   3 nils  staff     96 May 18 01:02 includes
+-rw-r--r--   1 nils  staff     86 May 18 15:07 infile
+-rw-r--r--   1 nils  staff      0 May 19 02:06 outfile
+-rwxr-xr-x   1 nils  staff  34536 May 19 02:04 pipex
+drwxr-xr-x  13 nils  staff    416 May 19 02:04 src
+drwxr-xr-x   7 nils  staff    224 May 18 01:02 tests
+drwxr-xr-x  14 nils  staff    448 May 18 15:15 utils

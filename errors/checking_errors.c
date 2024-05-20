@@ -6,23 +6,39 @@
 /*   By: niabraha <niabraha@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:27:11 by niabraha          #+#    #+#             */
-/*   Updated: 2024/05/13 17:11:13 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/05/18 15:19:38 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/pipex.h"
 
-void error_args(int argc, char **argv)
+void error_open(void)
 {
-	if (argc != 5)
-	{
-		
-	}
+	perror("Error: Open failed");
+	exit(EXIT_FAILURE);
 }
 
-void check_errors(int argc, char **argv)
+void error_fork(void)
 {
-	error_args(argc, argv);
+	perror("Error: Fork failed");
+	exit(EXIT_FAILURE);
+}
+
+void error_pipe(void)
+{
+	perror("Error: Pipe failed");
+	exit(EXIT_FAILURE);
+}
+
+void error_args()
+{
+	perror("Error: Wrong number of arguments\n");
+	exit(EXIT_FAILURE);
+}
+
+void check_errors()
+{
+	error_args();
 	error_pipe();
 	error_fork();
 }

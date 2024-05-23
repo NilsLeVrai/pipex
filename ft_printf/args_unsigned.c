@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   args_unsigned.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 14:23:07 by niabraha          #+#    #+#             */
-/*   Updated: 2024/05/22 16:20:26 by niabraha         ###   ########.fr       */
+/*   Created: 2023/12/06 00:15:59 by niabraha          #+#    #+#             */
+/*   Updated: 2024/05/22 16:21:17 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	args_unsigned(va_list args)
 {
-	void	*memory;
+	unsigned int	nbr;
 
-	memory = malloc(nmemb * size);
-	if (!memory)
-		return (NULL);
-	ft_bzero(memory, (nmemb * size));
-	return (memory);
+	nbr = va_arg(args, unsigned int);
+	return (ft_putnbr_base(nbr, "0123456789"));
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: niabraha <niabraha@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:29:36 by niabraha          #+#    #+#             */
-/*   Updated: 2024/04/11 16:26:54 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:20:30 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/pipex.h"
+#include "../includes/pipex.h"
 
 static void	*free_tab(char **tab)
 {

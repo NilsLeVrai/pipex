@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: niabraha <niabraha@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:25:20 by niabraha          #+#    #+#             */
-/*   Updated: 2024/04/11 16:30:33 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:20:19 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/pipex.h"
+#include "../includes/pipex.h"
 
 void	ft_bzero(void *s, size_t n)
 {

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   args_pointer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 14:23:07 by niabraha          #+#    #+#             */
-/*   Updated: 2024/05/22 16:20:26 by niabraha         ###   ########.fr       */
+/*   Created: 2023/12/05 23:30:02 by niabraha          #+#    #+#             */
+/*   Updated: 2024/05/22 16:21:17 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	args_pointer(va_list args)
 {
-	void	*memory;
+	void	*adr;
 
-	memory = malloc(nmemb * size);
-	if (!memory)
-		return (NULL);
-	ft_bzero(memory, (nmemb * size));
-	return (memory);
+	adr = va_arg(args, void *);
+	if (adr == 0)
+		return (ft_putstr_safe("(nil)"));
+	ft_putstr_safe("0x");
+	return (ft_putnbr_base((unsigned long)adr, "0123456789abcdef") + 2);
 }

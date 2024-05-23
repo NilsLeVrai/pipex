@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   args_percent.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 14:23:07 by niabraha          #+#    #+#             */
-/*   Updated: 2024/05/22 16:20:26 by niabraha         ###   ########.fr       */
+/*   Created: 2023/12/05 23:21:28 by niabraha          #+#    #+#             */
+/*   Updated: 2024/05/22 16:21:17 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	args_percent(void)
 {
-	void	*memory;
+	char	c;
 
-	memory = malloc(nmemb * size);
-	if (!memory)
-		return (NULL);
-	ft_bzero(memory, (nmemb * size));
-	return (memory);
+	c = '%';
+	return (ft_putchar_fd_safe(c, 1));
 }

@@ -6,7 +6,7 @@
 /*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:21:48 by niabraha          #+#    #+#             */
-/*   Updated: 2024/05/23 16:10:52 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/05/24 17:59:47 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,15 @@ parent fd[1] --> pipe --> child fd[0] --> child fd[1] --> pipe --> parent fd[0]
     write                    read       	write                     read
 */
 
-/* static void execcommand(char *command, char **env)
-{
-	char	**argv;
-	char	*path;
-	int		i;
-
-	i = 0;
-	argv = ft_split(command, ' ');
-	path = ft_strjoin("/bin/", argv[0]);
-	execve(path, argv, env);
-	free(path);
-	free(argv);
-}
-
+/* 
 static void child_process(char **argv, int *fd, char **env)
 {
 	int infile;
 
-	infile = open(argv[1], O_RDONLY);
-	dup2(infile, STDIN_FILENO);
-	dup2(fd[1], STDOUT_FILENO);
-	close(fd[0]);
-	close(infile);
-	execcommand(argv[2], env);
+	infile = open(argv[1], O_RDONLY); path, flag, mode
+	dup2 pour rediriger les fd??
+	"oublie pas de close" -achatzit 2024
+	execve pour executer les commandes 
 	
 }
 
@@ -48,12 +33,10 @@ static void parent_process(char **argv, int *fd, char **env)
 {
 	int outfile;
 
-	outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	dup2(fd[0], STDIN_FILENO);
-	dup2(outfile, STDOUT_FILENO);
-	close(fd[1]);
-	close(outfile);
-	execve(argv[3], &argv[3], env);
+	outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777); path, flag, mode
+	dup2 pour rediriger les fd??
+	"oublie pas de close" -achatzit 2024
+	execve pour executer les commandes (path, argv, envp) ex: (/usr/bin/, "ls -l", envp)
 }
 
 int main(int argc, char **argv, char **env)
@@ -114,6 +97,8 @@ int main(int argc, char **argv, char **env)
 	char *path;
     char **tab;
 
+	if (argc != 5)
+		error_args();
 	path = find_path(env);
 	printf("\n\n%s\n", path);
 	int nb = nb_path(path);

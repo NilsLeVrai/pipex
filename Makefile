@@ -54,3 +54,5 @@ fclean : clean
 re :
 	make fclean
 	make
+
+.PHONY: all clean fclean re

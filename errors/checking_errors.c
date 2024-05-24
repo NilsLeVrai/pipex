@@ -6,13 +6,13 @@
 /*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:27:11 by niabraha          #+#    #+#             */
-/*   Updated: 2024/05/23 12:50:57 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/05/24 17:21:13 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void error_dup2(void)
+void error_dup2()
 {
 	perror("Error: Dup2 failed");
 	exit(EXIT_FAILURE);
@@ -24,13 +24,13 @@ void error_open()
 	exit(EXIT_FAILURE);
 }
 
-void error_fork(void)
+void error_fork()
 {
 	perror("Error: Fork failed");
 	exit(EXIT_FAILURE);
 }
 
-void error_pipe(void)
+void error_pipe()
 {
 	perror("Error: Pipe failed");
 	exit(EXIT_FAILURE);

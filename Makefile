@@ -1,7 +1,8 @@
 NAME_B = bonus
 NAME_P = pipex
 
-_SRCS_P = pipex.c
+_SRCS_P = pipex.c \
+			pipex_utils.c
 
 _SRCS_E = checking_errors.c 
 

@@ -6,7 +6,7 @@
 /*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 15:55:50 by niabraha          #+#    #+#             */
-/*   Updated: 2024/05/29 18:07:23 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/05/30 20:38:45 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 # include <sys/stat.h>
 # include <string.h>
 # include <errno.h>
+
+typedef struct s_list
+{
+	int	infile;
+	int	outfile;
+	int	pipefd[2];
+}		t_list;
 
 //////////////////////////////////////////
 ////    ___ _ __ _ __ ___  _ __ ___   ////
@@ -44,7 +51,7 @@ void	error_dup2(void);
 //|_|     |_|               //
 //////////////////////////////
 
-void 	ft_execve(char *cmd, char **env);
+void 	ft_execlp(char *str, char **envp);
 int 	nb_path(char *path);
 
 ///////////////////////////////

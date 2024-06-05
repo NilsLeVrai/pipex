@@ -14,7 +14,7 @@ WHITE = \033[0;97m
 
 SRCS	=	src/pipex2.c
 
-SRCS_MAIN	= src/pipex.c $(SRC
+SRCS_MAIN	= src/pipex.c $(SRCS)
 
 SRCS_BONUS	= utils_bonus.c
 

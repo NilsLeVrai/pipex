@@ -6,7 +6,7 @@
 /*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 23:28:00 by niabraha          #+#    #+#             */
-/*   Updated: 2024/06/05 15:59:34 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:17:23 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,29 +60,28 @@ void	parent_process(t_pipex fd, pid_t *pid)
 int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	fd;
-	pid_t	pid[2];
 
 	if (argc != 5)
 		error_message("Wrong number of arguments.");
 	fd.infile = open(argv[1], O_RDONLY);
 	fd.outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd.infile < 0 || fd.outfile < 0)
-		error_message("Error on opening a file.");
+		error_message("No such file or directory");
 	if (pipe(fd.pipefd) == -1)
 		error_message("Pipe error.");
-	pid[0] = fork();
-	if (pid[0] < 0)
+	fd.pid[0] = fork();
+	if (fd.pid[0] < 0)
 		error_message("Fork error on pid1.");
-	if (pid[0] == 0)
+	if (fd.pid[0] == 0)
 		first_child_process(fd, argv[2], envp);
 	else
 	{
-		pid[1] = fork();
-		if (pid[1] < 0)
+		fd.pid[1] = fork();
+		if (fd.pid[1] < 0)
 			error_message("Fork error on pid2.");
-		if (pid[1] == 0)
+		if (fd.pid[1] == 0)
 			second_child_process(fd, argv[3], envp);
 		else
-			parent_process(fd, pid);
+			parent_process(fd, fd.pid);
 	}
 }

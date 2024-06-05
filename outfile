@@ -1,0 +1,12 @@
+total 44
+drwxr-xr-x 6 niabraha 2023_mulhouse   135 juin   5 18:53 .
+drwxr-xr-x 8 niabraha 2023_mulhouse   102 mai   31 20:36 ..
+-rw-r--r-- 1 niabraha 2023_mulhouse  8196 juin   5 13:17 .DS_Store
+drwxr-xr-x 8 niabraha 2023_mulhouse   201 juin   5 16:24 .git
+drwxr-xr-x 2 niabraha 2023_mulhouse    21 mai   21 18:44 includes
+-rw-r--r-- 1 niabraha 2023_mulhouse    52 juin   5 17:41 infile
+-rw-r--r-- 1 niabraha 2023_mulhouse  1574 juin   5 16:59 Makefile
+-rw-r--r-- 1 niabraha 2023_mulhouse     0 juin   5 18:53 outfile
+-rwxr-xr-x 1 niabraha 2023_mulhouse 22424 juin   5 18:53 pipex
+drwxr-xr-x 2 niabraha 2023_mulhouse   130 juin   5 18:53 src
+drwxr-xr-x 2 niabraha 2023_mulhouse    27 avril  8 18:26 .vscode

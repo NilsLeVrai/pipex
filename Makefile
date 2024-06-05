@@ -6,11 +6,11 @@
 #    By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 14:25:31 by niabraha          #+#    #+#              #
-#    Updated: 2024/06/05 16:10:34 by niabraha         ###   ########.fr        #
+#    Updated: 2024/06/05 16:59:25 by niabraha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME_P = pipex
+NAME = pipex
 
 _SRCS_P = pipex.c \
 			pipex2.c \
@@ -31,10 +31,10 @@ GREEN = \033[0;32m
 YELLOW = \033[0;33m
 NO_COLOR = \033[0m
 
-all : $(NAME_P)
+all : $(NAME)
 
-$(NAME_P) : $(SRCO_P)
-	@cc $(FLAG) -o $(NAME_P) $(SRCO_P) $(INC)
+$(NAME) : $(SRCO_P)
+	@cc $(FLAG) -o $(NAME) $(SRCO_P) $(INC)
 	@echo "$(GREEN)Make done!$(NO_COLOR)"
 
 %.o : %.c
@@ -46,7 +46,7 @@ clean :
 	
 
 fclean : clean
-	@/bin/rm -f $(NAME_P)
+	@/bin/rm -f $(NAME)
 	@echo "$(RED)Make fclean done! $(NO_COLOR)"
 
 re :

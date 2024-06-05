@@ -6,7 +6,7 @@
 /*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:27:38 by niabraha          #+#    #+#             */
-/*   Updated: 2024/06/05 16:23:25 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/06/05 18:53:19 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 	free(final_path);
 	i++;
 } */
-	
+
 char	*find_path(char *cmd, char **envp)
 {
 	char	**all_paths;
@@ -78,7 +78,7 @@ void	ft_execlp(char *cmd, char **envp)
 		exit(EXIT_FAILURE);
 	}
 	if (access(path, F_OK) == -1)
-		error_message("error accessing the file.");
+		error_message("");
 	if (execve(path, tab, envp) == -1)
-		error_message("error executing the function.");
+		error_message("Permission denied");
 }

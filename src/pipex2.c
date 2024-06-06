@@ -6,16 +6,23 @@
 /*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:27:38 by niabraha          #+#    #+#             */
-/*   Updated: 2024/06/05 19:16:41 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/06/06 18:28:23 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-static char	*check_access(char *cmd)
+char	*check_path(char *cmd, char *path)
 {
-	if (access(cmd, F_OK) == 0)
-		return (cmd);
+	char	*possible_path;
+	char	*final_path;
+
+	possible_path = ft_strjoin(path, "/");
+	final_path = ft_strjoin(possible_path, cmd);
+	free(possible_path);
+	if (access(final_path, F_OK) == 0)
+		return (final_path);
+	free(final_path);
 	return (NULL);
 }
 
@@ -23,23 +30,20 @@ char	*find_path(char *cmd, char **envp)
 {
 	char	**all_paths;
 	char	*final_path;
-	char	*possible_path;
 	int		i;
 
 	i = 0;
-	check_access(cmd);
+	if (access(cmd, F_OK) == 0)
+		return (cmd);
 	while (ft_strncmp(envp[i], "PATH=", 5) != 0)
 		i++;
 	all_paths = ft_split(envp[i] + 5, ':');
 	i = -1;
 	while (all_paths[++i])
 	{
-		possible_path = ft_strjoin(all_paths[i], "/");
-		final_path = ft_strjoin(possible_path, cmd);
-		free(possible_path);
-		if (access(final_path, F_OK) == 0)
+		final_path = check_path(cmd, all_paths[i]);
+		if (final_path)
 			return (final_path);
-		free(final_path);
 	}
 	i = -1;
 	while (all_paths[++i])

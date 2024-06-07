@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pipex2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: niabraha <niabraha@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:27:38 by niabraha          #+#    #+#             */
-/*   Updated: 2024/06/06 18:28:23 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/06/07 23:25:10 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-char	*check_path(char *cmd, char *path)
+static char	*check_path(char *cmd, char *path)
 {
 	char	*possible_path;
 	char	*final_path;
@@ -26,7 +26,7 @@ char	*check_path(char *cmd, char *path)
 	return (NULL);
 }
 
-char	*find_path(char *cmd, char **envp)
+static char	*find_path(char *cmd, char **envp)
 {
 	char	**all_paths;
 	char	*final_path;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: niabraha <niabraha@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 23:28:00 by niabraha          #+#    #+#             */
-/*   Updated: 2024/06/05 17:17:23 by niabraha         ###   ########.fr       */
+/*   Updated: 2024/06/07 23:14:23 by niabraha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	first_child_process(t_pipex fd, char *cmd1, char **envp)
 
 void	second_child_process(t_pipex fd, char *cmd2, char **envp)
 {
-	if (dup2(fd.pipefd[0], STDIN_FILENO) == -1)
-		error_message("dup2 pipefd[0]");
 	if (dup2(fd.outfile, STDOUT_FILENO) == -1)
 		error_message("dup2 outfile");
+	if (dup2(fd.pipefd[0], STDIN_FILENO) == -1)
+		error_message("dup2 pipefd[0]");
 	close(fd.pipefd[0]);
 	close(fd.pipefd[1]);
 	close(fd.outfile);
@@ -46,13 +46,10 @@ void	second_child_process(t_pipex fd, char *cmd2, char **envp)
 
 void	parent_process(t_pipex fd, pid_t *pid)
 {
-	int	i;
-
-	i = 0;
 	close(fd.pipefd[0]);
 	close(fd.pipefd[1]);
-	waitpid(pid[i], NULL, 0);
-	waitpid(pid[i + 1], NULL, 0);
+	waitpid(pid[0], NULL, 0);
+	waitpid(pid[1], NULL, 0);
 	close(fd.infile);
 	close(fd.outfile);
 }

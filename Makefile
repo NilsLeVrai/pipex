@@ -3,23 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: niabraha <niabraha@student.42.fr>          +#+  +:+       +#+         #
+#    By: niabraha <niabraha@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 14:25:31 by niabraha          #+#    #+#              #
-#    Updated: 2024/06/05 16:59:25 by niabraha         ###   ########.fr        #
+#    Updated: 2024/06/06 23:42:28 by niabraha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
 
-_SRCS_P = pipex.c \
+SOURCES = pipex.c \
 			pipex2.c \
 			utils.c \
 			utils2.c 
 			
 SRCS_P_DIR = src
 
-SRCS_P = $(addprefix $(SRCS_P_DIR)/, $(_SRCS_P))
+SRCS_P = $(addprefix $(SRCS_P_DIR)/, $(SOURCES))
 
 SRCO_P = $(SRCS_P:.c=.o)
 
